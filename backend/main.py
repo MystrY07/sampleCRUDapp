@@ -36,6 +36,7 @@ def get_db():
 
 @app.post("/items/", response_model=schemas.Item)
 def create_item(item: schemas.ItemCreate, db: Session = Depends(get_db)):
+    logging.info("CREATE : %s ", item)
     existing = db.query(models.Item).filter(
         models.Item.name == item.name).first()
     if existing:
@@ -69,7 +70,8 @@ def read_item(item_id: int, db: Session = Depends(get_db)):
 
 
 @app.put("/items/{item_id}", response_model=schemas.Item)
-def update_item(item_id: int, item: schemas.ItemCreate, db: Session = Depends(get_db)):
+def update_item(item_id: int, item: schemas.ItemCreate,
+                db: Session = Depends(get_db)):
     db_item = db.query(models.Item).filter(models.Item.id == item_id).first()
     if db_item is None:
         raise HTTPException(status_code=404, detail="Item not found")
@@ -104,8 +106,3 @@ def delete_item(item_id: int, db: Session = Depends(get_db)):
 
 logging.basicConfig(filename='server.log',
                     encoding='utf-8', level=logging.DEBUG)
-
-
-@app.post("/items/", response_model=schemas.Item)
-def create_item(item: schemas.ItemCreate, db: Session = Depends(get_db)):
-    logging.info("CREATE : %s ", item)

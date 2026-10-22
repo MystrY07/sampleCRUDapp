@@ -1,0 +1,27 @@
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Widget' description='A useful widget' 
+INFO:httpx:HTTP Request: POST http://testserver/items/ "HTTP/1.1 200 OK"
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Bare item' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Widget' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:httpx:HTTP Request: GET http://testserver/items/ "HTTP/1.1 200 OK"
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='First' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Item 0' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Solo' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:httpx:HTTP Request: GET http://testserver/items/999 "HTTP/1.1 404 Not Found"
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Old' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:httpx:HTTP Request: PUT http://testserver/items/999 "HTTP/1.1 404 Not Found"
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Taken' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:root:CREATE : name='Doomed' description=None 
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:httpx:HTTP Request: DELETE http://testserver/items/999 "HTTP/1.1 404 Not Found"

@@ -58,6 +58,9 @@ resource "aws_instance" "server" {
 
   vpc_security_group_ids = [aws_security_group.server_sg.id]
 
+  user_data                   = file("${path.module}/startup.sh")
+  user_data_replace_on_change = true
+
   tags = {
     Name = var.instance_name
   }
